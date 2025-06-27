@@ -1,0 +1,190 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%; /* Dark background */
+    --foreground: 0 0% 98%; /* Light text */
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 160 84% 39%; /* Green accent */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 64%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 12 6% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 26%;
+    --input: 240 5% 26%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 240 5% 65%;
+    --sidebar-primary: 142 71% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 5% 26%;
+    --sidebar-ring: 142 71% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-hexDark-500 text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.parallax-bg {
+  background-image: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.12), transparent 30%);
+  background-size: 70vmin 70vmin;
+  background-position: left 50% top 0px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hexagon-grid {
+  background-image: 
+    linear-gradient(to right, rgba(142, 145, 150, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(142, 145, 150, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.blob {
+  border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  background: rgba(16, 185, 129, 0.1);
+  animation: blob 10s linear infinite;
+  position: absolute;
+  z-index: -2;
+}
+
+@keyframes blob {
+  0% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+  25% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; } 
+  50% { border-radius: 48% 52% 30% 70% / 53% 30% 70% 47%; }
+  75% { border-radius: 25% 75% 70% 30% / 95% 5% 95% 5%; }
+  100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #10B981, #34D399);
+}
+
+/* Code terminal styling */
+.terminal {
+  background-color: #111111;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.terminal-header {
+  background-color: #1F1F1F;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-body {
+  padding: 16px;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.terminal-line {
+  display: flex;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.terminal-line.shown {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.terminal-prompt {
+  color: #10B981;
+  margin-right: 8px;
+}
+
+.cursor {
+  background-color: #10B981;
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
