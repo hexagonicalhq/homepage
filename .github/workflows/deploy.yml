@@ -37,7 +37,9 @@ jobs:
     - name: Configure kubeconfig
       run: |
         mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
+        echo -n "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
+        chmod 600 ~/.kube/config
+        kubectl config use-context github-deployer-context
 
     - name: Deploy to Kubernetes
       run: |
