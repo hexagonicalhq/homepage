@@ -114,8 +114,8 @@ const Footer = () => {
             
             <div className="mt-8">
               <h4 className="text-white font-semibold mb-4">Contact</h4>
-              <a href="mailto:hello@hexagonical.dev" className="text-hexGreen-500 hover:text-hexGreen-400 transition-colors">
-                hello@hexagonical.dev
+              <a href="mailto:hello@hexagonical.ch" className="text-hexGreen-500 hover:text-hexGreen-400 transition-colors">
+                hello@hexagonical.ch
               </a>
             </div>
           </div>

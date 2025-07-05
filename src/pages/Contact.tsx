@@ -11,28 +11,28 @@ const CONTACT_OPTIONS = [
     icon: <MessageSquare size={24} />,
     title: "General Inquiries",
     description: "Questions about our tools or company",
-    email: "hello@hexagonical.dev",
+    email: "hello@hexagonical.ch",
     response: "We'll get back to you within 24 hours"
   },
   {
     icon: <Users size={24} />,
     title: "Partnerships",
     description: "Interested in working together",
-    email: "partnerships@hexagonical.dev", 
+    email: "partnerships@hexagonical.ch", 
     response: "Let's explore opportunities"
   },
   {
     icon: <Zap size={24} />,
     title: "Technical Support",
     description: "Need help with our tools",
-    email: "support@hexagonical.dev",
+    email: "support@hexagonical.ch",
     response: "Technical questions get priority"
   },
   {
     icon: <Mail size={24} />,
     title: "Press & Media",
     description: "Media inquiries and press requests",
-    email: "press@hexagonical.dev",
+    email: "press@hexagonical.ch",
     response: "We love talking to journalists"
   }
 ];
