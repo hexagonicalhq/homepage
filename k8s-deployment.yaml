@@ -16,7 +16,7 @@ spec:
       - name: homepage
         image: ghcr.io/hexagonicalhq/homepage:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         envFrom:
         - configMapRef:
             name: homepage-config
@@ -31,4 +31,4 @@ spec:
     app: homepage
   ports:
   - port: 80
-    targetPort: 3000
+    targetPort: 80
